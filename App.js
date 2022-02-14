@@ -40,7 +40,7 @@ export default function App() {
 
   return (
     <ScrollView style={Stylesheet.container}>
-      <Text>Alcometer</Text>
+      <Text  style={Stylesheet.heading} >Alcometer</Text>
       <Text>Weight</Text>
       <TextInput 
         placeholder='Input your weight in kilograms.'
@@ -50,7 +50,7 @@ export default function App() {
       
       <Text>Bottles</Text>
       <View>
-        <Picker style={Stylesheet.bottlesPicker}
+        <Picker style={Stylesheet.picker}
             onValueChange={(itemValue) => setBottles(itemValue)}
             selectedValue={bottles}
           >
@@ -64,7 +64,7 @@ export default function App() {
 
       <Text>Time</Text>
       <View>
-        <Picker style={Stylesheet.bottlesPicker}
+        <Picker style={Stylesheet.picker}
             onValueChange={(itemValue) => setTime(itemValue)}
             selectedValue={time}
           >
@@ -88,7 +88,12 @@ export default function App() {
         <Text style={Stylesheet.result} >{result}</Text>
       </View>
 
-      <Button title='Calculate' />
+      <View style={Stylesheet.button} >
+        <Button 
+        color={'#6200EE'} 
+        title='Calculate' 
+        />
+      </View>
       
       <StatusBar style="auto" />
     </ScrollView>

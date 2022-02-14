@@ -9,6 +9,13 @@ export default StyleSheet.create({
         padding: 20,
         borderRadius: 20,
     },
+    heading: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: '#6200EE',
+        alignSelf: 'center',
+        margin: 5,
+    },
     separator: {
         marginTop: 5,
         borderBottomColor: 'darkgrey',
@@ -16,11 +23,18 @@ export default StyleSheet.create({
         alignSelf: 'stretch',
         marginBottom: 5,
     },
-    bottlesPicker: {
-        margin: 10,
+    picker: {
+        margin: 5,
+        padding: 5,
+        backgroundColor: '#03DAC6',
+        borderRadius: 20,
     },
     result: {
         fontSize: 40,
         alignSelf: 'center'
+    },
+    button: {
+        marginTop: 10,
+        marginBottom: 50,
     }
 });
