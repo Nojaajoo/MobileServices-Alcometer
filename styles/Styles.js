@@ -26,7 +26,7 @@ export default StyleSheet.create({
     picker: {
         margin: 5,
         padding: 5,
-        backgroundColor: '#03DAC6',
+        backgroundColor: '#e2e2e2',
     },
     result: {
         fontSize: 40,
@@ -35,5 +35,16 @@ export default StyleSheet.create({
     button: {
         marginTop: 10,
         marginBottom: 50,
+    },
+    resultColor: {
+        margin: 20,
+        padding: 5,
+        backgroundColor: null
+    },
+    yellow: {
+        backgroundColor: 'yellow'
+    },
+    red: {
+        backgroundColor: 'red'
     }
 });

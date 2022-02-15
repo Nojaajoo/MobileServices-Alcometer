@@ -11,6 +11,7 @@ export default function App() {
   const [bottles, setBottles] = useState(1);
   const [time, setTime] = useState(1);
   const [alcometer, setAlcometer] = useState(0);
+  const [isColor, setIsColor] = useState(false);
 
   const bottlesAmount=Array();
   bottlesAmount.push({label: '1 bottle', value: 1});
@@ -31,6 +32,8 @@ export default function App() {
   hours.push({label: '4 hours', value: 4});
   hours.push({label: '5 hours', value: 5});
   hours.push({label: '6 hours', value: 6});
+  hours.push({label: '7 hours', value: 7});
+  hours.push({label: '8 hours', value: 8});
 
   const genderValues = [
     {
@@ -43,13 +46,15 @@ export default function App() {
     }
   ]
 
-  function calculate() {
-    if (weight === 0) {
+  const calculate = () => {
+    if (weight === 0 || weight == '') {
       alert("Please input your weight!");
+      return;
+    } else if (gender === "No selection") {
+      alert("Please choose gender first!");
       return;
     }
     let result = 0;
-    // let kg = weight;
     let litres = bottles * 0.33;
     let grams = litres * 8 * 4.5;
     let burning = weight / 10;
@@ -59,8 +64,26 @@ export default function App() {
     } else {
       result = gramsLeft / (weight * 0.7);
     }
+    if (result < 0) {
+      result = 0;
+    }
     setAlcometer(result);
-    console.log(result);
+    setIsColor(true);
+    
+  }
+
+  const backgroundColor = () => {
+    let color;
+    if  (!isColor) {
+      color = '';
+    } else if (alcometer <= 0.001) {
+      color = 'lightgreen';
+    } else if (alcometer <= 0.2 && alcometer > 0) {
+      color = 'yellow';
+    } else if (alcometer > 0.2) {
+      color = 'red';
+    }
+    return color;
   }
 
 
@@ -85,8 +108,6 @@ export default function App() {
               <Picker.Item key={index} label={bottles.label} value={bottles.value}/>
             ))}
         </Picker>
-        {/* testing */}
-        <Text>{bottles}</Text>
       </View>
 
       <Text>Time</Text>
@@ -99,19 +120,16 @@ export default function App() {
               <Picker.Item key={index} label={hours.label} value={hours.value}/>
             ))}
         </Picker>
-        {/* testing */}
-        <Text>{time}</Text>
       </View>
       
       <Text>Gender</Text>
       <View>
         <RadioButton options={genderValues} onPress={(value) => {setGender(value)}} />
-        {/* testing */}
-        <Text>{gender}</Text>
       </View>
 
       {/* Result */}
-      <View>
+      
+      <View style={[Stylesheet.resultColor, {backgroundColor: backgroundColor()}]} >
         <Text style={Stylesheet.result} >{alcometer.toFixed(2)}</Text>
       </View>
 
@@ -123,7 +141,7 @@ export default function App() {
         />
       </View>
       
-      <StatusBar style="auto" />
+      <StatusBar style="auto" backgroundColor={backgroundColor()} />
     </ScrollView>
   );
 }
