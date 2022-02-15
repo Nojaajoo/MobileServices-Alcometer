@@ -27,7 +27,6 @@ export default StyleSheet.create({
         margin: 5,
         padding: 5,
         backgroundColor: '#03DAC6',
-        borderRadius: 20,
     },
     result: {
         fontSize: 40,
