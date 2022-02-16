@@ -80,7 +80,7 @@ export default function App() {
   const backgroundColor = () => {
     let color;
     if  (!isColor) {
-      color = '';
+      color = 'transparent';
     } else if (alcometer < 0.005) {
       color = '#03DAC6';
     } else if (alcometer <= 0.2 && alcometer > 0) {
