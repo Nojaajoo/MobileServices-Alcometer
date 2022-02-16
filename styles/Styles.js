@@ -8,6 +8,7 @@ export default StyleSheet.create({
         marginTop: 50,
         padding: 20,
         borderRadius: 20,
+        elevation: 10
     },
     heading: {
         fontSize: 30,
@@ -15,6 +16,14 @@ export default StyleSheet.create({
         color: '#6200EE',
         alignSelf: 'center',
         margin: 5,
+    },
+    subheading: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        margin: 3
+    },
+    input: {
+        padding: 10
     },
     separator: {
         marginTop: 5,
@@ -29,22 +38,20 @@ export default StyleSheet.create({
         backgroundColor: '#e2e2e2',
     },
     result: {
-        fontSize: 40,
-        alignSelf: 'center'
+        fontSize: 50,
+        fontWeight: 'bold',
+        alignSelf: 'center',
     },
     button: {
         marginTop: 10,
         marginBottom: 50,
     },
-    resultColor: {
+    resultView: {
         margin: 20,
         padding: 5,
-        backgroundColor: null
+        backgroundColor: null,
     },
-    yellow: {
-        backgroundColor: 'yellow'
-    },
-    red: {
-        backgroundColor: 'red'
+    screenBackground: {
+        backgroundColor: 'white',
     }
 });
